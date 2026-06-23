@@ -90,20 +90,71 @@
 - Db2 Advanced Edition is an enterprise-level database solution that includes advanced features for performance optimization, high availability, workload management, security, and scalability. I
 - t is designed for mission-critical business applications.
 
+# Db2 Architecture -
+- Db2 follows a client-server architecture in which client applications communicate with the Db2 database server to access and manage data.
+- The architecture consists of several components that work together to provide efficient data processing, storage management, and high-performance database operations.
 
+## Client Layer -
+- The client layer consists of applications that connect to the Db2 database server.
+- Applications are linked with the Db2 client library and communicate with the server to submit SQL requests and receive results.
 
+#### Local Client Communication -
+- When the application and Db2 server reside on the same machine, communication occurs through:
+    - Shared Memory
+    - Semaphores
+- This method provides fast communication because network protocols are not required.
 
+#### Remote Client Communication -
+- When the application and Db2 server reside on different machines, communication occurs through network protocols such as:
+   - TCP/IP
+   - NPIPE (Named Pipes)
+- These protocols enable applications to access databases remotely.
 
+## Db2 Server -
+- Db2 Server is responsible for processing client requests and managing database operations.
+- It contains several internal components that work together to provide efficient database services. All activities within the server are controlled by Engine Dispatchable Units (EDUs).
 
+### Engine Dispatchable Units (EDUs)
+- Engine Dispatchable Units (EDUs) are the fundamental processing units within Db2. They are implemented as threads and perform various database tasks.
+- Thread is the smallest unit of execution within a process. It performs a specific task independently while sharing the same memory and resources of the process.
 
+##### Agents -
+- Agents are the most common type of EDU. Db2 agents perform most of the SQL and XQuery processing required by applications.
+- They receive requests from clients, execute database operations, and return the results.
+- Apart from Db2 Agents, the most important and commonly used EDUs are Page Cleaners and Prefetchers.
 
+##### Subagents -
+- Subagents are helper processing units assigned to support agents in handling client requests.
+- Multiple subagents may be assigned when server contains multiple processors and database operates in a partitioned environment.
+- In a Symmetric Multiprocessing (SMP) environment, multiple subagents can execute tasks simultaneously by utilizing multiple processors, thereby improving performance through parallel processing.
 
+##### Pooling Algorithm -
+- Pooling Algorithm in Db2 is a mechanism used to manage Agents and Subagents efficiently.
+- Instead of creating a new EDU (thread) for every client request and destroying it after use, Db2 keeps a pool of reusable EDUs.
+- It improves performance as requests are processed faster because EDUs are already available.
+- Creating and destroying threads repeatedly is expensive because it consumes: CPU resources, Memory, Time
 
+##### Buffer Pools -
+- Buffer pool is a memory area used to temporarily store database pages, including:
+    - User data pages: store the actual table data
+    - Index pages: store index entries used for fast data retrieval
+    - Catalog pages: store metadata about database objects such as tables, columns, indexes, and tablespaces.
+- Buffer pools improve database performance because accessing data from memory is significantly faster than accessing data from disk storage.
 
+##### Prefetchers -
+- Prefetchers are background EDUs responsible for moving data from disk storage into the buffer pool before applications request it.
+- The purpose of prefetching is to reduce application wait time, improve query performance, and increase data access efficiency by loading data into memory before it is requested.
+- Applications send asynchronous read-ahead requests to prefetchers through a common prefetch queue. Prefetchers retrieve the required pages and place them into the buffer pool in advance.
+- When prefetchers receive requests, they perform operations such as:
+    - Big-block reads: reads many pages in a single operation
+    - Scatter-read operations: reads multiple pages from disk and places them into different locations in the Buffer Pool in a single operation.
+- These techniques allow data pages to be transferred efficiently from disk into memory.
+- If data is distributed across multiple disks, prefetchers can retrieve data simultaneously from several disks. This process, known as data striping, improves I/O performance and reduces data retrieval time.
 
-
-
-
-
+##### Page Cleaners -
+- Page Cleaners are background EDUs responsible for moving modified data pages from the buffer pool back to disk storage.
+- Page cleaners identify changed pages, write modified pages to disk, maintain free space in buffer pools, and support prefetcher operations for efficient data management.
+- Page cleaners operate independently of application agents and perform their tasks in the background.
+- Without page cleaners, application agents would be required to perform all disk write operations, reducing overall system performance.
 
 
