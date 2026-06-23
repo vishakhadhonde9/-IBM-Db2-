@@ -157,4 +157,29 @@
 - Page cleaners operate independently of application agents and perform their tasks in the background.
 - Without page cleaners, application agents would be required to perform all disk write operations, reducing overall system performance.
 
+# Database Storage Components
+- Db2 stores and manages data using a hierarchy of logical and physical storage structures. These components work together to organize, store, and retrieve data efficiently.
 
+## Database
+- Database is a logical collection of related database objects such as tables, indexes, views, and tablespaces.
+- It serves as a container for organizing and managing related data within the Db2 environment.
+
+## Tablespaces
+- Tablespace is a storage structure within a database that physically stores table data.
+- Tablespaces provide a logical grouping of storage and help manage how data is stored on disk.
+
+## Tables
+- Table is a database object that stores actual user data in the form of rows and columns.
+- Each row represents a record, and each column represents an attribute of that record.
+
+## Indexes
+- Index is a database object that provides an efficient access path to data stored in tables. 
+- Indexes improve query performance by allowing Db2 to locate required rows quickly without scanning the entire table.
+
+Database
+    ↓
+Tablespace
+    ↓
+Table
+    ↓
+Rows and Columns
