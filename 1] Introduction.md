@@ -220,8 +220,16 @@ Rows and Columns
 - It enables applications running on different systems to connect to Db2.
 - Distributed Data Facility (DDF) supports TCP/IP communication, handles remote SQL requests, manages distributed database connections, and provides client-server communication.
 
+# Db2 Catalog
+- Db2 Catalog is a collection of system tables that contains information about all database objects defined in a Db2 subsystem.
+- It stores metadata, which means "data about data."
+- Db2 Catalog stores metadata about tables, columns, indexes, views, table spaces, databases, users, and their privileges.
+- Db2 Catalog acts as the data dictionary of Db2 and is automatically maintained by the database system.
 
-
+# Db2 Directory
+- Db2 Directory is a special system database that stores internal information required by Db2 for its operation.
+- It contains system control information, recovery information, and definitions of internal Db2 objects that are essential for the functioning of the Db2 subsystem.
+- Directory is created automatically during Db2 installation and is maintained by Db2 itself.
 
 
 
