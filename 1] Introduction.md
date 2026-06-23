@@ -63,3 +63,47 @@
 ### 9. Table Partitioning
 - Db2 supports table partitioning, which divides large tables into smaller, manageable partitions. 
 - This improves query performance, facilitates parallel processing, enhances manageability, and allows efficient utilization of computing resources across multiple servers.
+
+# Db2 Products -
+## 1. Db2 for z/OS -
+- Db2 for z/OS is the mainframe version of Db2 that runs on the z/OS operating system. I
+- t is designed for high-volume transaction processing, high availability, scalability, security, and reliability.
+- It is widely used in industries such as banking, insurance, telecommunications, and government.
+
+## 2. Db2 for Linux, UNIX, and Windows (Db2 LUW)
+- Db2 LUW is a distributed database management system that runs on Linux, UNIX, and Windows platforms.
+- It provides support for online transaction processing (OLTP), analytical workloads, and enterprise applications. It can be deployed in both on-premises and cloud environments.
+
+## 3. Db2 Warehouse
+- Db2 Warehouse is a data warehousing solution designed for large-scale analytics and business intelligence workloads.
+- It provides advanced query performance, data compression, parallel processing, and support for analytical applications.
+
+## 4. Db2 Warehouse on Cloud
+- Db2 Warehouse on Cloud is a fully managed cloud-based data warehouse service.
+- It provides scalable storage and computing resources, reduces infrastructure management requirements, and supports advanced analytics in cloud environments.
+
+## 5. Db2 Community Edition
+- Db2 Community Edition is a free version of Db2 intended for learning, development, testing, and small-scale production environments.
+- It includes core database functionality and allows users to gain experience with Db2 technology.
+
+## 6. Db2 Advanced Edition
+- Db2 Advanced Edition is an enterprise-level database solution that includes advanced features for performance optimization, high availability, workload management, security, and scalability. I
+- t is designed for mission-critical business applications.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
