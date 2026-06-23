@@ -183,3 +183,45 @@ Tablespace
 Table
     ↓
 Rows and Columns
+
+
+# Db2 Subsystem
+- Db2 Subsystem is a complete and independent Db2 environment running on a z/OS system.
+- It consists of all the resources, address spaces, databases, system services, and control structures required to manage and process data.
+- Subsystem acts as a separate instance of Db2 that can operate independently of other Db2 subsystems on the same mainframe.
+- Db2 subsystem manages databases and database objects, processes SQL requests, controls transactions, manages memory and storage, handles recovery and logging, and provides security and concurrency control.
+
+# Components of a Db2 Subsystem
+## 1. Address Spaces -
+- In z/OS, an Address Space is an independent execution environment with its own memory and resources.
+- Db2 does not run as a single program. Instead, it runs in multiple address spaces, where each address space performs specific functions.
+- **Db2 subsystem consists of four major address spaces:**
+### 1. System Services Address Space (SSAS)
+- SSAS is the first Db2 address space started when the subsystem is initialized.
+- It acts as the communication interface between Db2 and z/OS.
+- System Services Address Space (SSAS) starts and stops the Db2 subsystem, communicates with z/OS services, coordinates subsystem activities, manages system-level resources, and supports communication among Db2 address spaces.
+- Without SSAS, Db2 cannot establish its operating environment.
+
+### 2.Database Services Address Space (DBAS / DBM1)
+- Database Services Address Space (DBAS), commonly known as DBM1 in modern Db2 for z/OS, is the main processing address space where most database work is performed.
+- It is responsible for managing data access, SQL processing, buffer pools, and I/O operations.
+- DBAS is responsible for SQL processing, query execution, data retrieval and modification, buffer pool management, logging, and database access.
+- DBAS is often called the heart of the Db2 subsystem because it performs most database operations.
+
+### Internal Resource Lock Manager (IRLM) 
+- IRLM is a separate address space in Db2 for z/OS that manages all locks within the Db2 subsystem.
+- Lock Manager is responsible for row, page, and table locking, deadlock detection, and lock conflict resolution to ensure data integrity and concurrency control.
+- To ensure data integrity when multiple users access the same data simultaneously.
+- Lock Manager is responsible for row, page, and table locking, deadlock detection, and lock conflict resolution to ensure data integrity and concurrency control.
+- Without IRLM, multiple users could modify the same data at the same time, leading to incorrect results and database corruption.
+
+### Distributed Data Facility (DDF)
+- The Distributed Data Facility (DDF) provides support for distributed and remote database access.
+- It enables applications running on different systems to connect to Db2.
+- Distributed Data Facility (DDF) supports TCP/IP communication, handles remote SQL requests, manages distributed database connections, and provides client-server communication.
+
+
+
+
+
+
