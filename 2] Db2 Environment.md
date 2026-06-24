@@ -225,3 +225,30 @@ Applications can continue accessing shared data even during maintenance activiti
 
 ## 6. Flexible Configuration
 Organizations can configure, expand, and adjust the data sharing environment based on changing business requirements.
+
+
+# Subsystem Parameters -
+- Subsystem Parameters are settings that control how a Db2 subsystem works.
+- They tell Db2 how to handle security, performance, logging, recovery, communication, and other important functions.
+- These settings apply to the entire Db2 subsystem, so any change can affect all users and applications using that Db2 system.
+- These parameters are commonly called ZPARMs.
+
+- Subsystem parameters are usually defined when:
+   - Db2 is installed
+   - Db2 is migrated to a new version
+- They can also be changed later if business requirements change.
+
+
+## Examples of Subsystem Parameters
+- AUTH:Controls whether Db2 performs authorization checking for users and applications.
+- Logging Parameters:Control active logs, archive logs, and recovery processing.
+- Performance Parameters:Control thread limits, storage usage, and system resource allocation.
+- Data Sharing Parameters:Control the operation of Db2 members in a data sharing group.
+- Distributed Data Parameters:Control communication through Distributed Data Facility (DDF).
+
+## DSNZPARM Module -
+- DSNZPARM is the load module that contains the values of the Db2 subsystem parameters (ZPARMs).
+- DSNZPARM is the configuration module that stores the settings used by a Db2 subsystem.
+- When Db2 starts, it reads the parameter values from the DSNZPARM module and uses them to control its behavior.
+
+
