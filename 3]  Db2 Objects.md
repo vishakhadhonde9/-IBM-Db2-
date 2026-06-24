@@ -11,7 +11,31 @@
 # 2. Schema
 Schema is a logical collection of database objects.
 
-    CREATE SCHEMA schema_name;
+## why we use schema -
+- **Organize Database Objects:** Groups related objects together for easier management.
+- **Avoid Naming Conflicts:** Different users can create objects with the same name in different schemas.
+- **Improve Security:** Permissions can be granted at the schema level instead of individual objects.
+- **Simplify Administration:** Makes database maintenance and object management easier.
+- **Support Multiple Applications:** Different applications can have their own schemas within the same database.
+- **Provide Logical Separation:** Separates objects based on departments, projects, or users.
+
+# Create Schema:
+
+        CREATE SCHEMA schema_name;
+
+## Schema Naming Conventions
+- 1. Use Meaningful Names: Choose names that reflect the department, application, or purpose.
+- 2. Use Uppercase for Consistency: Db2 stores unquoted identifiers in uppercase by default.
+- 3. Avoid Special Characters: Use letters, numbers, and underscores.
+- 4. Must Start with a Letter
+- 5. Length Limit: In Db2, a schema name can be up to 128 characters long.
+- 6. Allowed Characters: A–Z, 0–9 and Underscore (_)
+- 7. Do not use SQL keywords as schema names.
+- 8. Schema Names Must Be Unique within a database.
+
+
+
+
 
 # 3. Table Space
 - Tablespace is a storage structure that holds table data.
