@@ -19,9 +19,19 @@ Schema is a logical collection of database objects.
 - **Support Multiple Applications:** Different applications can have their own schemas within the same database.
 - **Provide Logical Separation:** Separates objects based on departments, projects, or users.
 
-# Create Schema:
-
+## Create Schema:
+### Explicit Schema Creation
+       
         CREATE SCHEMA schema_name;
+
+### Implicit Schema Creation
+
+        CREATE TABLE new_schema.table_name
+        (
+            id INTEGER
+        );
+        
+- If no schema is specified, Db2 uses the value stored in the CURRENT SCHEMA special register.
 
 ## Schema Naming Conventions
 - 1. Use Meaningful Names: Choose names that reflect the department, application, or purpose.
@@ -32,6 +42,39 @@ Schema is a logical collection of database objects.
 - 6. Allowed Characters: A–Z, 0–9 and Underscore (_)
 - 7. Do not use SQL keywords as schema names.
 - 8. Schema Names Must Be Unique within a database.
+
+## Creating Objects Inside a Schema
+
+        CREATE TABLE schema_name.table_name
+        (
+           column_name datatype
+        );
+
+
+## Creating Multiple Objects Using CREATE SCHEMA
+
+        CREATE SCHEMA schema_name
+        
+           CREATE TABLE table_name
+           (
+              column_name datatype,
+              ...
+           )
+        
+           CREATE VIEW view_name AS
+              SELECT ...
+
+## Dropping a Schema -
+- Dropping a schema means removing the schema definition from the database.
+
+        DROP SCHEMA schema_name
+        RESTRICT;
+- DB2 drops the schema only if it is empty. If the schema contains any objects, DB2 returns an error.
+
+        DROP SCHEMA schema_name
+        CASCADE;
+  
+- It removes both schema and object.
 
 
 
