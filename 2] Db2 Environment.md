@@ -178,3 +178,50 @@ Memory Management in Db2 and z/OS (Theoretical Explanation)
 - Together, they provide mechanisms for transaction recovery, system restart, rollback of incomplete transactions, and data restoration after failures.
 - These capabilities help prevent data loss and maintain reliable database operations.
 
+# Db2 Installation -
+
+
+
+# Data Sharing -
+- Data Sharing is a feature of Db2 for z/OS that allows applications running on multiple Db2 subsystems within a Parallel Sysplex to read and update the same Db2 data concurrently.
+- It provides high availability, scalability, performance, data integrity, and dynamic workload balancing.
+
+## Parallel Sysplex-
+- Sysplex is a group of z/OS systems that communicate and cooperate with each other using specialized hardware and software.
+- Parallel Sysplex is an IBM mainframe clustering technology that allows multiple z/OS systems to operate together as a single computing environment.
+- Parallel Sysplex is a Sysplex that uses one or more Coupling Facilities (CFs) to provide High-speed caching, Lock processing and List processing.
+   - Coupling Facility (CF) is a specialized hardware component in a Parallel Sysplex that provides high-speed locking, caching, and synchronization services.
+- These services enable multiple Db2 subsystems to access shared data efficiently.
+  
+#### Data Sharing Group -
+- Data Sharing Group is a collection of one or more Db2 subsystems that share the same Db2 data.
+- **Characteristics of Data Sharing Group:**
+- All members share the same Db2 Catalog and Directory.
+- All members reside in the same Parallel Sysplex.
+- Shared data resides on common shared disks.
+- A maximum of 32 members can belong to a group.
+- Each Db2 subsystem can belong to only one data sharing group.
+
+#### Data Sharing Members -
+- Db2 subsystem that belongs to a data sharing group is called a member.
+-In a Db2 data sharing group, each member processes application requests independently, reads and updates shared data, shares workload with other members, and accesses the same database objects.
+- Applications can connect to any member and access the same data.
+
+# Advantages- 
+## 1. High Availability
+If one Db2 member fails, other members continue processing requests, minimizing downtime and ensuring continuous business operations.
+
+## 2. Scalability
+Additional Db2 members can be added to the data sharing group as workload requirements increase, allowing the system to grow without major redesign.
+
+## 3. Dynamic Workload Balancing
+Workloads can be distributed across multiple Db2 members, helping optimize resource utilization and improve overall performance.
+
+## 4. Increased Processing Capacity
+Multiple Db2 subsystems process transactions concurrently, resulting in higher throughput and better response times.
+
+## 5. Continuous Access to Data
+Applications can continue accessing shared data even during maintenance activities, reducing service interruptions.
+
+## 6. Flexible Configuration
+Organizations can configure, expand, and adjust the data sharing environment based on changing business requirements.
